@@ -7,6 +7,7 @@ function App() {
     <div className="App">
         <FirstCompo/>
         <ClassA/>
+        <h1>Hello World</h1>
     </div>
   );
 }
