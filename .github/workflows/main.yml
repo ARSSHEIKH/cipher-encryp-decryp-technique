@@ -39,7 +39,7 @@ jobs:
         run: npm install -g surge
         
       - name: deploying on surge
-        run: surge ./build http://encryption-technique.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+        run: surge ./build http://ars-encryptiontechnique.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
