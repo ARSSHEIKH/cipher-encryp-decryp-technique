@@ -21,9 +21,9 @@
         }
         console.log(cipherText);
         return (
-            cipherText
-            
-        );
+            cipherText, 
+            '<br/>  <button>Decrypt it<button/>'
+            );
         
 
     }
@@ -65,5 +65,7 @@
             console.log(cipherText[i]);
             return cipherText[i] = String.fromCharCode(cipherText[i]);
         }
+
+
     
 export default inp;
