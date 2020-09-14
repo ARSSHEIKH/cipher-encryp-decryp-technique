@@ -19,6 +19,7 @@
         else{
             return "Plain Text and Key size not matched ! please reload" 
         }
+        console.log(cipherText);
         return (
             cipherText
             
@@ -36,6 +37,7 @@
         for(let i=0; i<=key_str.length-1; i++){
             key_ch[i] = key_str.charCodeAt(i);
         }
+        console.log(pt_ch)
         console.log(key_ch)
         return one_Time_Pad (pt_ch,key_ch);
     }
@@ -47,7 +49,7 @@
                 cipherText[i] = key_ch[i] + pt_ch[i];
                 
                 if(cipherText[i]>127){
-                      cipherText[i] = cipherText[i]-127;
+                      cipherText[i] = cipherText[i]-128;
                 }
                 //   cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
                 mytechnique(cipherText, key_ch, i);
@@ -55,6 +57,7 @@
   
                 
               }
+              console.log(cipherText);
               return cipherText;
         }
         const mytechnique = (cipherText, key_ch, i) => {

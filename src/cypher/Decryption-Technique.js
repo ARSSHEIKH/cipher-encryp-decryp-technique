@@ -3,10 +3,10 @@
 
 
    function inp() {
-        alert("cipherText and Key that you will enter should be same length, Ok?");
+        // alert("cipherText and Key that you will enter should be same length, Ok?");
 
-        var cipherText = (prompt("Enter cipher text"));
-        var key_str = prompt("Enter key");
+        // var cipherText = (prompt("Enter cipher text"));
+        // var key_str = prompt("Enter key");
         let pt_str=[pt_str.length];
 
         if(pt_str.length === key_str.length){
@@ -43,7 +43,7 @@
                 pt_str[i] = key_ch[i] - pt_str[i];
                 
                 if(cipherText[i]>127){
-                    pt_str[i] = pt_str[i]-127;
+                    pt_str[i] = pt_str[i]+127;
                 }
                 //   pt_str[i] = parseInt(key_ch[i] / pt_str[i]) % 127;
                 mytechnique(cipherText, key_ch, i);
