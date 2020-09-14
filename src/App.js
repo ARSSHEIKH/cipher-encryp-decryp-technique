@@ -1,14 +1,17 @@
 import React from 'react';
-import ArrowFirstCompo from './components/funccompo';
-import ClassA from './components/classcompo';
+// import ArrowFirstCompo from './components/funccompo';
+// import ClassA from './components/classcompo';
+import Encryption from './cypher/Encryption-Technique'
 
 function App() {
   return (
     <div className="App">
-        <ArrowFirstCompo/>
-        <ClassA/>
-        <h1>Hello World</h1>
-    </div>
-  );
+        
+        {/* <ClassA/> */}
+        <h3>Your cipher is : <Encryption/></h3>
+        <br/>
+        <button id="btnDecryp" onClick="Decryption_Click()">For Decryption for any input</button>
+        
+    </div>);
 }
 export default App;
