@@ -52,7 +52,7 @@
                 if(cipherText[i]>127){
                       cipherText[i] = cipherText[i]-128;
                 }
-                //   cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
+                //   cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 128;
                 mytechnique(cipherText, key_ch, i);
 
   
@@ -66,15 +66,18 @@
         const mytechnique = (cipherText, key_ch, i) => {
             
             // cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
-            div = parseInt(key_ch[i] * cipherText[i]) / 127;
-            deci = ((key_ch[i] * cipherText[i]) / 127) - div;
-            cipherText[i] = deci*127;
+            div = parseInt(key_ch[i] * cipherText[i]) / 128;
+            deci = ((key_ch[i] * cipherText[i]) / 128) - div;
+            cipherText[i] = deci*128;
             console.log(cipherText[i]);
             return cipherText[i] = String.fromCharCode(cipherText[i]);
         }
 
         Decryption_Click = () => {
             alert("han bahai");
+
+
+
         }
     
 export default inp;
