@@ -74,7 +74,7 @@
         }
 
         Decryption_Click = () => {
-
+            alert("han bahai");
         }
     
 export default inp;
