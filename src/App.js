@@ -12,7 +12,7 @@ function App() {
         <br/>
         <button id="btnDecryp" onClick="Decryption_Click()">For Decryption for any input</button>
 
-        <script src="./cypher/Encryption-Technique"></script>
+        <script src="./cypher/Encryption-Technique.js"></script>
 
 
     </div>),
