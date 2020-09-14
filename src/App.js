@@ -17,6 +17,12 @@ function App() {
 
     </div>)
 
+function Decryption_Click(){
+  var encryp = <Encryption/>
+  alert("chal gaya", encryp);
+  return encryp;
+}
+
     
 }
 export default App;
