@@ -11,9 +11,12 @@ function App() {
         <h3>Your cipher is : <Encryption/></h3>
         <br/>
         <button id="btnDecryp" onClick="Decryption_Click()">For Decryption for any input</button>
-      
+
+        <script src="./cypher/Encryption-Technique"></script>
+
+
     </div>),
 
-    ;
+    
 }
 export default App;

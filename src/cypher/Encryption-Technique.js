@@ -2,14 +2,15 @@
 // import React from 'react';
 
 
-    
-
+    var cipherText = [];
+    var pt_ch = [];
+    var key_ch = []
    function inp() {
         alert("Plain Text and Key that you will enter should be same length, Ok?");
 
         var pt_str = (prompt("Enter plain text"));
         var key_str = prompt("Enter key");
-        let cipherText=[pt_str.length];
+        cipherText=[pt_str.length];
 
         if(pt_str.length === key_str.length){
            
@@ -28,8 +29,8 @@
 
     }
     function convert_to_charArray(pt_str, key_str){
-        var pt_ch = [pt_str.length];
-        var key_ch = [key_str.length];
+        pt_ch = [pt_str.length];
+        key_ch = [key_str.length];
         
         for(let i=0; i<=pt_str.length-1; i++){
             pt_ch[i] = pt_str.charCodeAt(i);
@@ -44,7 +45,7 @@
     
    
     function one_Time_Pad (pt_ch,key_ch) {
-            var cipherText = [pt_ch.length];
+            cipherText = [pt_ch.length];
             for(let i=0; i<=pt_ch.length-1; i++){
                 cipherText[i] = key_ch[i] + pt_ch[i];
                 
@@ -60,12 +61,20 @@
               console.log(cipherText);
               return cipherText;
         }
+        var div;
+        var deci;
         const mytechnique = (cipherText, key_ch, i) => {
-            cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
+            
+            // cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
+            div = parseInt(key_ch[i] * cipherText[i]) / 127;
+            deci = ((key_ch[i] * cipherText[i]) / 127) - div;
+            cipherText[i] = deci*127;
             console.log(cipherText[i]);
             return cipherText[i] = String.fromCharCode(cipherText[i]);
         }
 
+        Decryption_Click = () => {
 
+        }
     
 export default inp;
