@@ -61,7 +61,7 @@
               return cipherText;
         }
         var integral_val
-        var deci;
+      
         const mytechnique = (cipherText, key_ch, i) => {
             // cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
             
