@@ -90,17 +90,19 @@ var key_ch =[]
                 cipherText[i] = parseInt(tempCipherText.charCodeAt(i))
                 integral_val =  cipherText[i] / 128;
                 oldcipherText[i] = parseInt(deci[i]) + integral_val;
+
                 oldcipherText[i] = (128 * oldcipherText[i]) / key_ch[i];
                 cipherText[i] = oldcipherText[i] - key_ch[i];
-                
+
+
                 if(cipherText[i] < 0){
                     cipherText[i] = cipherText[i] + 128;
                 }
                 cipherText[i] = String.fromCharCode(cipherText[i]);
       
-                return cipherText;
+                
             }
-
+            return cipherText;
         }
 
 export default inp;
