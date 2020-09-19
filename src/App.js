@@ -9,10 +9,7 @@ function App() {
     <div className="App">
         
         {/* <ClassA/> */}
-        <h3>Your cipher is : <Encryption/></h3>
-        <br/>
-        <button id="btnDecryp" onClick="">For Decryption for any input</button>
-    
+        <h3><Encryption/></h3>  
     </div>)
 }
 

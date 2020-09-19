@@ -1,15 +1,16 @@
 // import React, { Component } from 'react';
-// import React from 'react';
+import React from 'react';
 
-
-    
+let cipherText = []
+var pt_ch=[]
+var key_ch =[]
 
    function inp() {
         alert("Plain Text and Key that you will enter should be same length, Ok?");
 
         var pt_str = (prompt("Enter plain text"));
         var key_str = prompt("Enter key");
-        let cipherText=[pt_str.length];
+        cipherText=[pt_str.length];
 
         if(pt_str.length === key_str.length){
            
@@ -20,16 +21,25 @@
             return "Plain Text and Key size not matched ! please reload" 
         }
         console.log(cipherText);
+
         return (
-            cipherText
+            
+            <div>
+                <h1>Your CipherText is : {cipherText}</h1>
+                <button onClick={Decrtyption}>Decript It?</button>
+            </div>
             
         );
-        
-
     }
+    function Decrtyption(){
+       let decryptCypher = myDecrypt_technique();
+        
+       return alert("Plain Text was: "+ decryptCypher);
+    }
+   
     function convert_to_charArray(pt_str, key_str){
-        var pt_ch = [pt_str.length];
-        var key_ch = [key_str.length];
+        pt_ch = [pt_str.length];
+        key_ch = [key_str.length];
         
         for(let i=0; i<=pt_str.length-1; i++){
             pt_ch[i] = pt_str.charCodeAt(i);
@@ -44,35 +54,53 @@
     
    
     function one_Time_Pad (pt_ch,key_ch) {
-            var cipherText = [pt_ch.length];
+            cipherText = [pt_ch.length];
             for(let i=0; i<=pt_ch.length-1; i++){
-                cipherText[i] = key_ch[i] + pt_ch[i];
+                cipherText[i] = key_ch[i] + pt_ch[i];   //Step1
                 
-                if(cipherText[i]>127){
-                      cipherText[i] = cipherText[i]-128;
+                if(cipherText[i]>128){
+                      cipherText[i] = cipherText[i]-128;     //Step2
                 }
-                //   cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
-                mytechnique(cipherText, key_ch, i);
+                //   cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 128;
+                console.log("OldcipherText", cipherText[i]);
 
-  
-                
+                myEncrypt_technique(cipherText, key_ch, i);
+               
               }
-              console.log(cipherText);
               return cipherText;
         }
-        var integral_val
+        var integral_val, deci = [];
       
-        const mytechnique = (cipherText, key_ch, i) => {
-            // cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 127;
-            
-            integral_val = parseFloat(key_ch[i] * cipherText[i] / 128 - parseInt(key_ch[i] * cipherText[i] / 128));
-            console.log("integral_val", integral_val)
-            // deci = parseFloat(((key_ch[i] * cipherText[i]) / 128) - integral_val);
-
-            // // console.log("deci", deci)
-            cipherText[i] = integral_val * 128;
-            console.log(cipherText[i]);
+        const myEncrypt_technique = (cipherText, key_ch, i) => {
+            // cipherText[i] = parseInt(key_ch[i] * cipherText[i]) % 128;
+            integral_val = parseInt(key_ch[i] * cipherText[i] / 128);   //Step3
+            deci[i] = parseFloat(((key_ch[i] * cipherText[i]) / 128));  //Step4
+            cipherText[i] = parseInt((deci[i]-integral_val) * 128);     //Step5
+ 
             return cipherText[i] = String.fromCharCode(cipherText[i]);
         }
-    
+
+        const myDecrypt_technique  = () => {
+            let tempCipherText;
+            let oldcipherText = [];
+            tempCipherText = cipherText.toString();
+            tempCipherText = tempCipherText.replace(/,/g, "")
+            for(let i=0; i<=pt_ch.length-1; i++){
+                
+                cipherText[i] = parseInt(tempCipherText.charCodeAt(i))
+                integral_val =  cipherText[i] / 128;
+                oldcipherText[i] = parseInt(deci[i]) + integral_val;
+                oldcipherText[i] = (128 * oldcipherText[i]) / key_ch[i];
+                cipherText[i] = oldcipherText[i] - key_ch[i];
+                
+                if(cipherText[i] < 0){
+                    cipherText[i] = cipherText[i] + 128;
+                }
+                cipherText[i] = String.fromCharCode(cipherText[i]);
+      
+                return cipherText;
+            }
+
+        }
+
 export default inp;
