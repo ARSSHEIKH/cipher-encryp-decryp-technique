@@ -26,7 +26,6 @@ var key_ch =[]
             
             <div>
                 <h1>Your CipherText is : {cipherText}</h1>
-                <button onClick={Decrtyption}>Decript It?</button>
             </div>
             
         );
