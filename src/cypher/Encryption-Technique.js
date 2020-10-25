@@ -31,7 +31,7 @@ var key_ch =[]
             
         );
     }
-  export default  function Decrtyption(){
+  export function Decrtyption(){
        let decryptCypher = myDecrypt_technique();
         {decryptCypher}
        return alert("Plain Text was: "+ decryptCypher);
