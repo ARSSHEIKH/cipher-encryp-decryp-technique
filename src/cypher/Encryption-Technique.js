@@ -31,9 +31,9 @@ var key_ch =[]
             
         );
     }
-    function Decrtyption(){
+  export default  function Decrtyption(){
        let decryptCypher = myDecrypt_technique();
-        
+        {decryptCypher}
        return alert("Plain Text was: "+ decryptCypher);
     }
    
@@ -54,6 +54,7 @@ var key_ch =[]
     
    
     function one_Time_Pad (pt_ch,key_ch) {
+
             cipherText = [pt_ch.length];
             for(let i=0; i<=pt_ch.length-1; i++){
                 cipherText[i] = key_ch[i] + pt_ch[i];   //Step1
@@ -93,7 +94,6 @@ var key_ch =[]
 
                 oldcipherText[i] = (128 * oldcipherText[i]) / key_ch[i];
                 cipherText[i] = oldcipherText[i] - key_ch[i];
-
 
                 if(cipherText[i] < 0){
                     cipherText[i] = cipherText[i] + 128;
