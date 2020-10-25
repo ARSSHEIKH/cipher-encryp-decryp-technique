@@ -32,13 +32,15 @@ var key_ch =[]
         );
     }
   export function Decrtyption(){
-       let decryptCypher = myDecrypt_technique();
+       let decryptCypher;
        return (
-           <>
+           <div>
+           <button onClick={() => {
+              decryptCypher = myDecrypt_technique()
+           }}>Decript It?</button>
            {decryptCypher}
-           {alert("Plain Text was: "+ decryptCypher)}
-           </>
-        
+           
+           </div>
        )
     }
    
