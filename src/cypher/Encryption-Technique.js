@@ -34,7 +34,13 @@ var key_ch =[]
   export function Decrtyption(){
        let decryptCypher = myDecrypt_technique();
         {decryptCypher}
-       return alert("Plain Text was: "+ decryptCypher);
+       return (
+           <>
+           {decryptCypher}
+           {alert("Plain Text was: "+ decryptCypher)}
+           </>
+        
+       )
     }
    
     function convert_to_charArray(pt_str, key_str){
