@@ -34,7 +34,7 @@ var key_ch =[]
        let decryptCypher;
        return (
            <div>
-           <button onClick={() => {
+           <button onClick={decryptCypher = () => {
               decryptCypher = myDecrypt_technique()
               console.log("decryptCypher", decryptCypher)
               return decryptCypher
