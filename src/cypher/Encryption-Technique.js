@@ -33,7 +33,6 @@ var key_ch =[]
     }
   export function Decrtyption(){
        let decryptCypher = myDecrypt_technique();
-        {decryptCypher}
        return (
            <>
            {decryptCypher}
